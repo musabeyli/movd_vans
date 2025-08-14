@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVD Vans Investment Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            position: relative;
+            page-break-after: always;
+        }
+
+        .slide-1 {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .slide-2 {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+        }
+
+        .slide-3, .slide-4, .slide-5, .slide-6, .slide-7, .slide-8 {
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .slide-9 {
+            background: linear-gradient(135deg, #1a252f 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .title-slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .van-icon {
+            font-size: 80px;
+            margin: 30px 0;
+            opacity: 0.8;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .vision-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .vision-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .vision-graphic {
+            text-align: center;
+            position: relative;
+        }
+
+        .target-box {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 20px 0;
+            transform: perspective(1000px) rotateX(10deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .stakeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stakeholder-card {
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stakeholder-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-blue {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .card-orange {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .card-green {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+        }
+
+        .card-red {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        .stakeholder-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .stakeholder-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .process-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 200px;
+            position: relative;
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);
+        }
+
+        .process-step:first-child {
+            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
+        }
+
+        .process-step:last-child {
+            clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 20px 50%);
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .outcomes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .outcome-arrow {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            padding: 25px 40px;
+            clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 50%, calc(100% - 30px) 100%, 0 100%, 30px 50%);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .investment-focus {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .focus-item {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .focus-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .focus-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 25px;
+        }
+
+        .focus-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .focus-item p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #5a6c7d;
+        }
+
+        .returns-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .returns-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .returns-table th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 25px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .returns-table td {
+            padding: 20px 25px;
+            border-bottom: 1px solid #ecf0f1;
+            font-size: 1.1rem;
+        }
+
+        .returns-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .investment-amount {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .closing-quote {
+            font-size: 2.5rem;
+            font-weight: 300;
+            line-height: 1.3;
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .team-signature {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .final-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .final-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .slide {
+                padding: 40px 20px;
+            }
+            
+            .title-slide h1 {
+                font-size: 2.5rem;
+            }
+            
+            .vision-content,
+            .final-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .stakeholder-grid,
+            .investment-focus {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-flow {
+                flex-direction: column;
+            }
+            
+            .process-step {
+                clip-path: none;
+                border-radius: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide slide-1">
+        <div class="logo">MOVD</div>
+        <div class="title-slide">
+            <h1>MOVD Vans: Operational Expansion</h1>
+            <div class="van-icon">🚚</div>
+            <p class="subtitle">Building a reliable, affordable moving van service in NYC through owned fleet operations and flat-rate pricing to capture market share and strengthen brand presence.</p>
+        </div>
+    </div>
+
+    <!-- Slide 2: Vision -->
+    <div class="slide slide-2">
+        <h2 style="color: white;">The Vision for MOVD Vans</h2>
+        <div class="vision-content">
+            <div class="vision-graphic">
+                <div class="target-box">
+                    $150K INVESTMENT
+                    <br>
+                    THE EXPANSION
+                    <br>
+                    OR PLATEAU
+                </div>
+            </div>
+            <div class="vision-text">
+                MOVD Vans represents a strategic operational expansion of the MOVD brand, focused on building a reliable, affordable moving van service in NYC. By owning and operating branded vans with flat-rate pricing ($300–$350), we'll capture price-sensitive customers while establishing a strong physical presence on NYC streets that reinforces brand credibility and market dominance.
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Key Stakeholders -->
+    <div class="slide slide-3">
+        <h2>Key Stakeholders</h2>
+        <div class="stakeholder-grid">
+            <div class="stakeholder-card card-blue">
+                <h3>Fleet Operations</h3>
+                <p>Owned and operated branded vans providing reliable moving services with consistent quality control and brand representation throughout NYC.</p>
+            </div>
+            <div class="stakeholder-card card-orange">
+                <h3>Customers</h3>
+                <p>Price-sensitive movers seeking transparent, flat-rate pricing and reliable service with guaranteed availability and professional execution.</p>
+            </div>
+            <div class="stakeholder-card card-green">
+                <h3>MOVD Marketplace</h3>
+                <p>Existing platform that benefits from complementary in-house capacity, ensuring service availability and creating synergies between owned operations and marketplace partners.</p>
+            </div>
+            <div class="stakeholder-card card-red">
+                <h3>Investors</h3>
+                <p>Capital providers supporting the expansion with flexible return structures designed to align with different investment preferences and risk profiles.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Addressing Market Gaps -->
+    <div class="slide slide-4">
+        <h2>Addressing Market Gaps</h2>
+        <div class="process-flow">
+            <div class="process-step">
+                <h3>Pricing Transparency</h3>
+                <p>Flat-rate pricing eliminates uncertainty and builds customer trust in a market known for unpredictable costs and hidden fees.</p>
+            </div>
+            <div class="process-step">
+                <h3>Service Reliability</h3>
+                <p>Owned fleet ensures consistent availability and quality control, addressing common issues with third-party provider reliability.</p>
+            </div>
+            <div class="process-step">
+                <h3>Brand Visibility</h3>
+                <p>Branded vans create mobile marketing presence throughout NYC, building brand recognition and market credibility.</p>
+            </div>
+            <div class="process-step">
+                <h3>Operational Control</h3>
+                <p>Direct fleet management enables optimization of routes, scheduling, and customer experience while maintaining profit margins.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Desired Outcomes -->
+    <div class="slide slide-5">
+        <h2>Desired Outcomes</h2>
+        <div class="outcomes-list">
+            <div class="outcome-arrow">Market Share Capture</div>
+            <div class="outcome-arrow">Consistent Revenue Generation</div>
+            <div class="outcome-arrow">Enhanced Brand Credibility</div>
+            <div class="outcome-arrow">Operational Synergies with Marketplace</div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Phase I Investment -->
+    <div class="slide slide-6">
+        <h2>Phase I Investment</h2>
+        <div class="investment-focus">
+            <div class="focus-item">
+                <div class="focus-icon">🚐</div>
+                <h3>Fleet Acquisition & Outfitting</h3>
+                <p>Purchase and brand 5 moving vans with professional equipment, GPS tracking, and MOVD branding to establish market presence.</p>
+            </div>
+            <div class="focus-item">
+                <div class="focus-icon">📢</div>
+                <h3>Marketing & Launch</h3>
+                <p>Initial marketing campaigns, digital presence setup, and customer acquisition strategy targeting high-demand NYC neighborhoods.</p>
+            </div>
+        </div>
+        <div class="investment-amount">
+            By investing $150K in Phase I, MOVD Vans can deploy 5 fully branded vans, launch flat-rate service, and establish strong market share in high-demand NYC neighborhoods.
+        </div>
+    </div>
+
+    <!-- Slide 7: Potential Returns -->
+    <div class="slide slide-7">
+        <h2>Potential Returns</h2>
+        <div class="returns-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Investment Structure</th>
+                        <th>Return Potential</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Option A - Equity (Exit Only)</strong></td>
+                        <td>Proportional equity stake, returns on sale/exit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Option B - Cashflow Share</strong></td>
+                        <td>10% annual net profits, capped at 2× investment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Option C - Debt</strong></td>
+                        <td>10% annual interest for 5 years, principal repaid year 5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="text-align: center; margin-top: 30px; font-style: italic; color: #7f8c8d;">
+            *Target: 2 jobs per day per van, 6 days per week, generating consistent revenue and reinforcing MOVD's brand credibility.
+        </p>
+    </div>
+
+    <!-- Slide 8: Closing Quote -->
+    <div class="slide slide-8">
+        <div class="closing-quote">
+            "Building the foundation for MOVD's physical presence in NYC through strategic fleet expansion and customer-centric flat-rate pricing."
+        </div>
+        <div class="team-signature">
+            — MOVD VANS TEAM
+        </div>
+    </div>
+
+    <!-- Slide 9: Final Summary -->
+    <div class="slide slide-9">
+        <h2 style="color: white;">MOVD Vans: Operational Expansion</h2>
+        <div class="final-content">
+            <div style="text-align: center;">
+                <div style="font-size: 120px; opacity: 0.7; margin-bottom: 30px;">🚚</div>
+            </div>
+            <div class="final-text">
+                MOVD Vans presents a strategic opportunity to expand operational capacity while building brand credibility through owned fleet operations. With the proposed $150K investment, we can establish 5 branded vans, capture market share through competitive flat-rate pricing, and create sustainable revenue streams that complement our existing marketplace platform.
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">9</span>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'flex' : 'none';
+            });
+            document.getElementById('currentSlide').textContent = index + 1;
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        function previousSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+
+        // Auto-advance slides (optional)
+        // setInterval(nextSlide, 10000);
+    </script>
+</body>
+</html>
